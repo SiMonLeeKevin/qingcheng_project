@@ -6,8 +6,10 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 ">
-    <mvc:annotation-driven>
-    <mvc:message-converters register-defaults="true">
+
+    <mvc:annotation-driven/>
+
+   <!-- <mvc:message-converters register-defaults="true">
     <bean
             class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
         <property name="supportedMediaTypes" value="application/json"/>
@@ -18,6 +20,6 @@
             </list>
         </property>
     </bean>
-</mvc:message-converters>
-        </mvc:annotation-driven>
+</mvc:message-converters>-->
+
 </beans>

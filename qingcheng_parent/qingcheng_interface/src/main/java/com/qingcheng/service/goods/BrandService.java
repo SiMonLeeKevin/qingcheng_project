@@ -51,4 +51,22 @@ public interface BrandService {
      * @return
      */
     Brand findById(Integer id);
+
+    /**
+     * 新加商品
+     * @param brand
+     */
+    void add(Brand brand);
+
+    /**
+     * 修改品牌信息
+     * @param brand
+     */
+    void update(Brand brand);
+
+    /**
+     * 根据id进行删除
+     * @param id
+     */
+    void delete(Integer id);
 }

@@ -74,8 +74,9 @@ public class BrandServiceImpl  implements BrandService{
 
     @Override
     public PageInfo<Brand> findPage(Map<String, Object> serachMap, int page, int size) {
+        Example example = createExample(serachMap);
         PageHelper.startPage(page,size);
-        List<Brand> brandList = brandMapper.selectAll();
+        List<Brand> brandList = brandMapper.selectByExample(example);
         PageInfo<Brand> pageInfo = new PageInfo<>(brandList);
         return pageInfo;
     }
@@ -84,5 +85,20 @@ public class BrandServiceImpl  implements BrandService{
     public Brand findById(Integer id) {
         Brand brand = brandMapper.selectByPrimaryKey(id);
         return brand;
+    }
+
+    @Override
+    public void add(Brand brand) {
+        brandMapper.insert(brand);
+    }
+
+    @Override
+    public void update(Brand brand) {
+        brandMapper.updateByPrimaryKeySelective(brand);
+    }
+
+    @Override
+    public void delete(Integer id) {
+        brandMapper.deleteByPrimaryKey(id);
     }
 }
