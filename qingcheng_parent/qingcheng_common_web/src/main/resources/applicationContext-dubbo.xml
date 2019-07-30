@@ -19,4 +19,19 @@
 	<dubbo:consumer timeout="8000" retries="0" />
 
 	<context:component-scan base-package="com.qingcheng.controller"/>
+
+<!--多部分文件上传-->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="104857600"/>
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+
+	<!--aliOSS-->
+	<bean id="ossClient" class="com.aliyun.oss.OSSClient">
+		<constructor-arg index="0" value="oss-cn-chengdu.aliyuncs.com"/>
+		<constructor-arg index="1" value=""/>
+		<constructor-arg index="2" value=""/>
+
+	</bean>
+
 </beans>
